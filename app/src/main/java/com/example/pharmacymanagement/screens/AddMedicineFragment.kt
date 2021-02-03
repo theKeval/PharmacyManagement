@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.pharmacymanagement.R
-import com.example.pharmacymanagement.databinding.FragmentInstructionsBinding
+import com.example.pharmacymanagement.databinding.FragmentAddMedicineBinding
 
-class InstructionsFragment: Fragment() {
+class AddMedicineFragment: Fragment() {
 
-    private lateinit var binding: FragmentInstructionsBinding
+    private lateinit var binding: FragmentAddMedicineBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,7 +19,7 @@ class InstructionsFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_medicine, container, false)
 
         return binding.root
     }
