@@ -1,12 +1,19 @@
 <resources>
     <string name="app_name">Pharmacy Management</string>
     <string name="action_settings">Settings</string>
+
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="instruction_header_text">This application have 3 basic features as follows:</string>
+    <string name="instructions_text">
+        \u25CF  You can view products that you added in the catalog in the Inventory screen
+        \n\n
+        \u25CF  You can add new products by clicking on the "Plus" button on the bottom right corner in the Inventory screen
+        \n\n
+        \u25CF  You can View or Edit the details of the product you added
+    </string>
+    <string name="hello_instructions_text">Hello </string>
+
 </resources>

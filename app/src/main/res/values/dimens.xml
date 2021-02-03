@@ -1,3 +1,8 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="max_edittext_width">300dp</dimen>
+    <dimen name="margin_regular">16dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large_x">40dp</dimen>
+    <dimen name="margin_extra_large">64dp</dimen>
 </resources>
