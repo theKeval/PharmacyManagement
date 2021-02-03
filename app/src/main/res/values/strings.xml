@@ -8,11 +8,11 @@
 
     <string name="instruction_header_text">This application have 3 basic features as follows:</string>
     <string name="instructions_text">
-        \u25CF  You can view products that you added in the catalog in the Inventory screen
+        \u25CF  You can view Medicines that you added in the stock, on next screen
         \n\n
-        \u25CF  You can add new products by clicking on the "Plus" button on the bottom right corner in the Inventory screen
+        \u25CF  You can add new Medicines or Invoice by clicking on the "Add Medicine" or "Add Invoice" button from the next screen
         \n\n
-        \u25CF  You can View or Edit the details of the product you added
+        \u25CF  You can Edit the details of the Medicine Stock you added
     </string>
     <string name="hello_instructions_text">Hello </string>
 
