@@ -25,7 +25,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        // return NavigationUI.navigateUp(navController, AppBarConfiguration(navController.graph))
         return navController.navigateUp()
     }
 }
