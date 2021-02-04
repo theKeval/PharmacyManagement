@@ -37,6 +37,9 @@
             app:exitAnim="@anim/slide_out_to_right"
             app:popEnterAnim="@anim/slide_in_from_right"
             app:popExitAnim="@anim/slide_out_to_left" />
+        <action
+            android:id="@+id/action_mainFragment_to_editStockFragment"
+            app:destination="@id/editStockFragment" />
     </fragment>
     <fragment
         android:id="@+id/addMedicineFragment"
@@ -46,4 +49,12 @@
         android:id="@+id/addInvoiceFragment"
         android:name="com.example.pharmacymanagement.screens.AddInvoiceFragment"
         android:label="Add Invoice" />
+    <fragment
+        android:id="@+id/editStockFragment"
+        android:name="com.example.pharmacymanagement.screens.EditStockFragment"
+        android:label="Edit Medical Stock" >
+        <argument
+            android:name="medicine_stock"
+            app:argType="com.example.pharmacymanagement.models.MedicineStockModel" />
+    </fragment>
 </navigation>
