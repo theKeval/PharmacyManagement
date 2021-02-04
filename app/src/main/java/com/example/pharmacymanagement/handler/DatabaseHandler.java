@@ -16,7 +16,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "pharmacy.sqlite";
-    private static final String TABLE_CONTACTS = "contacts";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -125,7 +124,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
+    // inserting manufacture
     public void addManufacturer(String manuf_name, String manuf_address) {
         String insertQuery =
                 "INSERT INTO Manufacturer (manuf_name, manuf_address) " +
@@ -199,6 +198,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
+    // updating values in MedicineStock table
     public void updateMedicineStock(String med_name, int stock_quantity, String description) {
         String updateQuery =
                 "UPDATE MedicineStock SET stock_quantity=" + stock_quantity + ", description='" + description + "'" +
@@ -208,7 +208,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(updateQuery);
     }
 
-
+    // deleting specific medicine stock from MedicineStock table
     public void deleteMedicineStock(String med_name) {
         String deleteQuery =
                 "DELETE FROM MedicineStock " +
@@ -218,7 +218,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(deleteQuery);
     }
 
-
+    // read all data from MedicineStock table and returns it as List
     public List<MedicineStockModel> getStock() {
         List<MedicineStockModel> stock = new ArrayList<>();
 
