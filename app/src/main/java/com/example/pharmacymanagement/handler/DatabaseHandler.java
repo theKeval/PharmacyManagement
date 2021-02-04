@@ -120,7 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    
+
     public void addManufacturer(String manuf_name, String manuf_address){
         String insertQuery =
                 "INSERT INTO Manufacturer (manuf_name, manuf_address) " +
@@ -191,6 +191,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
+    }
+
+
+    public void updateMedicineStock(String med_name, int stock_quantity, String description){
+        String updateQuery =
+                "UPDATE MedicineStock SET stock_quantity="+stock_quantity+", description='"+description+"'" +
+                        "WHERE med_name='"+med_name+"'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(updateQuery);
     }
 
 
