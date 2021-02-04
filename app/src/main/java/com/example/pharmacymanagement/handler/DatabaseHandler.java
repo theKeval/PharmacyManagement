@@ -67,7 +67,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "CREATE TABLE MedicineStock(" +
                         "med_name VARCHAR(30) PRIMARY KEY NOT NULL," +
                         "stock_quantity INTEGER(5) NOT NULL," +
-                        "desctiption VARCHAR(50)" +
+                        "description VARCHAR(50)" +
                         ")";
 
         String query_createPatientTable =
@@ -146,7 +146,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addMedicine(String med_name, int price, String manuf_date, String expiry_date, int mr_id, int manuf_id) {
         String insertQuery =
                 "INSERT INTO Medicine (med_name, price, manuf_date, expiry_date, mr_id, manuf_id)" +
-                        "VALUES ('" + med_name + "', " + price + ",TO_DATE('" + manuf_date + "', 'DD/MM/YYYY'), TO_DATE('" + expiry_date + "', 'DD/MM/YYYY'), " + mr_id + ", " + manuf_id + ")";
+                        "VALUES ('" + med_name + "', " + price + ",'" + manuf_date + "', '" + expiry_date + "', " + mr_id + ", " + manuf_id + ")";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
@@ -191,7 +191,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addInvoice(int amount, String pay_method, String pay_date, int patient_id) {
         String insertQuery =
                 "INSERT INTO Invoice (amount, pay_method, pay_date, patient_id)" +
-                        "VALUES (" + amount + ", '" + pay_method + "', TO_DATE('" + pay_date + "', 'DD/MM/YYYY'), " + patient_id + ")";
+                        "VALUES (" + amount + ", '" + pay_method + "', '" + pay_date + "', " + patient_id + ")";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
@@ -249,7 +249,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        return cursor.getCount();
+        return cursor!= null ? cursor.getCount() : 0;
     }
 
     public int lastMrId() {
@@ -258,7 +258,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        return cursor.getCount();
+        return cursor!=null ? cursor.getCount() : 0;
     }
 
     public int lastManufacturerId() {
@@ -267,7 +267,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        return cursor.getCount();
+        return cursor!= null ? cursor.getCount() : 0;
     }
 
 }
