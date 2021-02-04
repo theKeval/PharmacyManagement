@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.pharmacymanagement.databinding.ActivityHomeBinding
+import com.example.pharmacymanagement.handler.DatabaseHandler
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,6 +23,12 @@ class HomeActivity : AppCompatActivity() {
 
         navController = this.findNavController(R.id.nav_host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
+
+        createTables()
+    }
+
+    private fun createTables() {
+        var dbHandler: DatabaseHandler = DatabaseHandler(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
