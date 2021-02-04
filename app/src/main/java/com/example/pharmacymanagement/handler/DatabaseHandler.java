@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.pharmacymanagement.models.MedicineStockModel;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -121,83 +123,83 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public void addManufacturer(String manuf_name, String manuf_address){
+    public void addManufacturer(String manuf_name, String manuf_address) {
         String insertQuery =
                 "INSERT INTO Manufacturer (manuf_name, manuf_address) " +
-                        "VALUES ('"+ manuf_name +"','"+ manuf_address +"')";
+                        "VALUES ('" + manuf_name + "','" + manuf_address + "')";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addMR(String mr_name, String mr_contact, String manuf_id){
+    public void addMR(String mr_name, String mr_contact, String manuf_id) {
         String insertQuery =
                 "INSERT INTO MedicalRepresentative (mr_name, mr_contact, manuf_id) " +
-                        "VALUES ('"+ mr_name +"','"+ mr_contact +"','"+ manuf_id +"')";
+                        "VALUES ('" + mr_name + "','" + mr_contact + "','" + manuf_id + "')";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addMedicine(String med_name, int price, String manuf_date, String expiry_date, int mr_id, int manuf_id){
+    public void addMedicine(String med_name, int price, String manuf_date, String expiry_date, int mr_id, int manuf_id) {
         String insertQuery =
                 "INSERT INTO Medicine (med_name, price, manuf_date, expiry_date, mr_id, manuf_id)" +
-                        "VALUES ('"+med_name+"', "+price+",TO_DATE('"+manuf_date+"', 'DD/MM/YYYY'), TO_DATE('"+expiry_date+"', 'DD/MM/YYYY'), "+ mr_id+", "+manuf_id+")";
+                        "VALUES ('" + med_name + "', " + price + ",TO_DATE('" + manuf_date + "', 'DD/MM/YYYY'), TO_DATE('" + expiry_date + "', 'DD/MM/YYYY'), " + mr_id + ", " + manuf_id + ")";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addMedicineIngredients(int med_id, String content){
+    public void addMedicineIngredients(int med_id, String content) {
         String insertQuery =
                 "INSERT INTO MedicineIngredients (med_id, content) " +
-                        "VALUES ("+ med_id +",'"+ content +"')";
+                        "VALUES (" + med_id + ",'" + content + "')";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addMedicineStock(String med_name, int stock_quantity, String description){
+    public void addMedicineStock(String med_name, int stock_quantity, String description) {
         String insertQuery =
                 "INSERT INTO MedicineStock (med_name, stock_quantity, description)" +
-                        "VALUES ('"+ med_name +"', "+stock_quantity+", '"+description+"')";
+                        "VALUES ('" + med_name + "', " + stock_quantity + ", '" + description + "')";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addPatient(String patient_name, String patient_contact){
+    public void addPatient(String patient_name, String patient_contact) {
         String insertQuery =
                 "INSERT INTO Patient (patient_name, patient_contact)" +
-                        "VALUES ('"+patient_name+"', '"+patient_contact+"')";
+                        "VALUES ('" + patient_name + "', '" + patient_contact + "')";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addPatientRequest(int patient_id, String med_name, int purchase_quantity){
+    public void addPatientRequest(int patient_id, String med_name, int purchase_quantity) {
         String insertQuery =
                 "INSERT INTO PatientRequest (patient_id, med_name, purchase_quantity)" +
-                        "VALUES ("+patient_id+", '"+med_name+"', "+purchase_quantity+")";
+                        "VALUES (" + patient_id + ", '" + med_name + "', " + purchase_quantity + ")";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
-    public void addInvoice(int amount, String pay_method, String pay_date, int patient_id){
+    public void addInvoice(int amount, String pay_method, String pay_date, int patient_id) {
         String insertQuery =
                 "INSERT INTO Invoice (amount, pay_method, pay_date, patient_id)" +
-                        "VALUES ("+amount+", '"+pay_method+"', TO_DATE('"+pay_date+"', 'DD/MM/YYYY'), "+patient_id+")";
+                        "VALUES (" + amount + ", '" + pay_method + "', TO_DATE('" + pay_date + "', 'DD/MM/YYYY'), " + patient_id + ")";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
     }
 
 
-    public void updateMedicineStock(String med_name, int stock_quantity, String description){
+    public void updateMedicineStock(String med_name, int stock_quantity, String description) {
         String updateQuery =
-                "UPDATE MedicineStock SET stock_quantity="+stock_quantity+", description='"+description+"'" +
-                        "WHERE med_name='"+med_name+"'";
+                "UPDATE MedicineStock SET stock_quantity=" + stock_quantity + ", description='" + description + "'" +
+                        "WHERE med_name='" + med_name + "'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(updateQuery);
@@ -207,10 +209,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void deleteMedicineStock(String med_name) {
         String deleteQuery =
                 "DELETE FROM MedicineStock " +
-                        "WHERE med_name='"+med_name+"'";
+                        "WHERE med_name='" + med_name + "'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(deleteQuery);
+    }
+
+
+    public List<MedicineStockModel> getStock() {
+        List<MedicineStockModel> stock = new ArrayList<>();
+
+        // select all query
+        String selectQuery = "SELECT * FROM MedicineStock";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String medicine_name = cursor.getString(0);
+                int stock_quantity = cursor.getInt(1);
+                String description = cursor.getString(2);
+
+                MedicineStockModel stockModel = new MedicineStockModel(medicine_name, stock_quantity, description);
+                stock.add(stockModel);
+            } while (cursor.moveToNext());
+        }
+
+        return stock;
     }
 
 
