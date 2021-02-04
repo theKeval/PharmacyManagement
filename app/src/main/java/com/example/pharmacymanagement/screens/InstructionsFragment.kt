@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.pharmacymanagement.R
 import com.example.pharmacymanagement.databinding.FragmentInstructionsBinding
 
@@ -20,6 +21,11 @@ class InstructionsFragment: Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
+
+        binding.btnInstructionsNext.setOnClickListener {
+            it.findNavController().
+                    navigate(InstructionsFragmentDirections.actionInstructionsFragmentToMainFragment())
+        }
 
         return binding.root
     }

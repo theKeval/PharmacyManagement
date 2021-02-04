@@ -6,6 +6,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!-- strings used in Instructions Fragment -->
     <string name="instruction_header_text">This application have 3 basic features as follows:</string>
     <string name="instructions_text">
         \u25CF  You can view Medicines that you added in the stock, on next screen
@@ -15,5 +16,29 @@
         \u25CF  You can Edit the details of the Medicine Stock you added
     </string>
     <string name="hello_instructions_text">Hello </string>
+
+    <!-- strings used in Add Medicine Fragment -->
+
+
+
+    <!-- extra strigs -->
+    <string name="no_item_label_text">There are no products yet!\n\n:(</string>
+    <string name="label_product_name">Product name:</string>
+    <string name="add_product">Add Product</string>
+    <string name="hint_product_name">Product Name</string>
+    <string name="hint_product_description">Product Description</string>
+    <string name="hint_product_category">Product Category</string>
+    <string name="hint_product_company">Product Company</string>
+    <string name="btn_text_cancel">Cancel</string>
+    <string name="btn_text_save">Save</string>
+    <string name="btn_text_delete">Delete</string>
+    <string name="error_saving">Unable to save Product :(</string>
+    <string name="error_deleting">Unable to delete Product</string>
+    <string name="btn_text_update">Update</string>
+    <string name="menu_title_logout">Logout</string>
+    <string name="label_product_company">Product Company</string>
+    <string name="label_product_category">Product Category</string>
+    <string name="label_product_description">Product Description</string>
+    <string name="text_disabled">Product Name is not Editable</string>
 
 </resources>
