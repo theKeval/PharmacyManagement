@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.pharmacymanagement.databinding.ActivityHomeBinding
 import com.example.pharmacymanagement.handler.DatabaseHandler
@@ -29,6 +28,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun createTables() {
         var dbHandler: DatabaseHandler = DatabaseHandler(this)
+        // dbHandler.addMedicine("third medicine")
+        // dbHandler.addMedicineStock("Detol Pharma")
     }
 
     override fun onSupportNavigateUp(): Boolean {
