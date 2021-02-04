@@ -29,7 +29,7 @@ class MainFragment: Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main,container, false)
 
-        var db: DatabaseHandler = DatabaseHandler(context)
+        var db = DatabaseHandler(context)
         var data = db.stock
 
         updateVisibilityUI(data.isEmpty())
@@ -44,7 +44,6 @@ class MainFragment: Fragment() {
             it.findNavController().
                     navigate(MainFragmentDirections.actionMainFragmentToAddMedicineFragment())
         }
-
         binding.addInvoice.setOnClickListener {
             it.findNavController().
                     navigate(MainFragmentDirections.actionMainFragmentToAddInvoiceFragment())
