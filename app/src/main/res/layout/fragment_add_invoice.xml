@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Medicine Name"
+                        android:hint="Patient Name"
                         android:inputType="text"
                         android:singleLine="true" />
 
@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Manufacturer Name"
+                        android:hint="Medicine Name"
                         android:inputType="text"
                         android:singleLine="true" />
 
@@ -68,8 +68,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Manufacturing Date"
-                        android:inputType="date"
+                        android:hint="Medicine Quantity"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -85,8 +85,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Manufacturing Date"
-                        android:inputType="date"
+                        android:hint="Amount"
+                        android:inputType="number"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -102,8 +102,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Manufacturing Date"
-                        android:inputType="date"
+                        android:hint="Patient Contact"
+                        android:inputType="text"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -119,8 +119,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Manufacturing Date"
-                        android:inputType="date"
+                        android:hint="Payment Method"
+                        android:inputType="text"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:background="@color/white"
-                        android:hint="Manufacturing Date"
+                        android:hint="Payment Date"
                         android:inputType="date"
                         android:singleLine="true" />
 
