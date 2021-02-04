@@ -29,17 +29,6 @@ class MainFragment: Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main,container, false)
 
-        var db = DatabaseHandler(context)
-        var data = db.stock
-
-        updateVisibilityUI(data.isEmpty())
-        if(!data.isEmpty()) {
-            for (medicine in db.stock) {
-                addMedicineUI(medicine)
-            }
-        }
-
-
         binding.addMedicine.setOnClickListener {
             it.findNavController().
                     navigate(MainFragmentDirections.actionMainFragmentToAddMedicineFragment())
@@ -50,6 +39,20 @@ class MainFragment: Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        var db = DatabaseHandler(context)
+        var data = db.stock
+
+        updateVisibilityUI(data.isEmpty())
+        if(!data.isEmpty()) {
+            for (medicine in db.stock) {
+                addMedicineUI(medicine)
+            }
+        }
+
+        super.onResume()
     }
 
     private fun addMedicineUI(medicine: MedicineStockModel) {

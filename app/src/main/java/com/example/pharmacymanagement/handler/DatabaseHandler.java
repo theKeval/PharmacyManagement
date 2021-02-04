@@ -134,10 +134,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(insertQuery);
     }
 
-    public void addMR(String mr_name, String mr_contact, String manuf_id) {
+    public void addMR(String mr_name, String mr_contact, int manuf_id) {
         String insertQuery =
                 "INSERT INTO MedicalRepresentative (mr_name, mr_contact, manuf_id) " +
-                        "VALUES ('" + mr_name + "','" + mr_contact + "','" + manuf_id + "')";
+                        "VALUES ('" + mr_name + "','" + mr_contact + "'," + manuf_id + ")";
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(insertQuery);
@@ -241,6 +241,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         return stock;
+    }
+
+    public int lastMedId() {
+        String selectQuery = "SELECT * FROM Medicine";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        return cursor.getCount();
+    }
+
+    public int lastMrId() {
+        String selectQuery = "SELECT * FROM MedicalRepresentative";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        return cursor.getCount();
+    }
+
+    public int lastManufacturerId() {
+        String selectQuery = "SELECT * FROM Manufacturer";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        return cursor.getCount();
     }
 
 }
