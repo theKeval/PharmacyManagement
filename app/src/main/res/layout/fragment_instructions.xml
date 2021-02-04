@@ -23,7 +23,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/hello_instructions_text" />
+                android:text="@string/hello_instructions_text" />
+
 
             <TextView
                 android:id="@+id/label_instruction_header"
