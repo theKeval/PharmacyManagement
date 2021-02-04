@@ -204,6 +204,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
+    public void deleteMedicineStock(String med_name) {
+        String deleteQuery =
+                "DELETE FROM MedicineStock " +
+                        "WHERE med_name='"+med_name+"'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(deleteQuery);
+    }
+
+
     // code to add the new contact
     void addContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
